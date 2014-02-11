@@ -3,15 +3,21 @@
 #include <config.h>
 #endif
 
-#define YAML_VERSION_MAJOR 0
-#define YAML_VERSION_MINOR 1
-#define YAML_VERSION_PATCH 3
-#define YAML_VERSION_STRING "0.1.3"
-
 #include <yaml.h>
 
 #include <assert.h>
 #include <limits.h>
+#include <stddef.h>
+
+#ifndef _MSC_VER
+#include <stdint.h>
+#else
+#ifdef _WIN64
+#define PTRDIFF_MAX _I64_MAX
+#else
+#define PTRDIFF_MAX INT_MAX
+#endif
+#endif
 
 /*
  * Memory management.
@@ -425,6 +431,12 @@ yaml_queue_extend(void **start, void **head, void **tail, void **end);
 
 #define STACK_EMPTY(context,stack)                                              \
     ((stack).start == (stack).top)
+
+#define STACK_LIMIT(context,stack,size)                                         \
+    ((stack).top - (stack).start < (size) ?                                     \
+        1 :                                                                     \
+        ((context)->error = YAML_MEMORY_ERROR,                                  \
+         0))
 
 #define PUSH(context,stack,value)                                               \
     (((stack).top != (stack).end                                                \
