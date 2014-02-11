@@ -9,3 +9,7 @@
      be used to test for equality
    * load now also recognizes 'yes' as a boolean truth value
    * zero length scalars are not converted to nil
+
+0.3: Feburary 11 2014
+    * update libyaml to version 0.1.5 (2014-02-04)
+    * fixed compilation error on ubuntu 12.04 LTS x86_64
