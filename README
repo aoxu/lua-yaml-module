@@ -10,13 +10,13 @@ SYNOPSIS
 DESCRIPTION
     This module is a Lua binding for Kirill Siminov's excellent LibYAML.
     LibYAML is generally considered to be the best C YAML 1.1 implementation.
-    LibYAML 0.1.3 is included as part of this release.
+    LibYAML 0.1.5 is included as part of this release.
 
     This module defines the functions dump, load, and configure within the
     global yaml table.
 
     Portions of this software were inspired by Perl's YAML::LibYAML module by
-    Ingy döt Net.
+    Ingy dot Net.
 
 SEE ALSO
     * LibYAML (http://pyyaml.org/wiki/LibYAML)
@@ -24,11 +24,13 @@ SEE ALSO
     * YAML::LibYAML (http://search.cpan.org/~nuffin/YAML-LibYAML)
 
 AUTHOR
+    Ao Xu <xatest@gmail.com>
     Andrew Danforth <acd@weirdness.net>
 
     If you are using this module successfully I would love to hear from you.
 
 COPYRIGHT
+    Copyright (c) 2014, Ao Xu
     Copyright (c) 2009, Andrew Danforth
 
 THANKS
